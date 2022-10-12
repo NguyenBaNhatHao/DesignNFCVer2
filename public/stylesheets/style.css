@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+header {
+  color: yellow;
+  padding: 200px;
+}
+
+#form-card {
+  padding-top: 10px;
+}

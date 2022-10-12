@@ -4,9 +4,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %> </title>
+    <title>Tao the sinh vien</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <%- include('../partials/head'); %>
 </head>
 <body>
-    <h1>test</h1> 
+    <div class="container">
+        <div id="react">
+            <header>
+                <%- include('../partials/header'); %>
+            </header>
+            <div class="row">
+                <div class="col">
+                    <div id="card" v-bind:style="{ 'background-image': 'url(' + background + ')' }">
+                        <div id="overlay"></div>
+                        <%=  %> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="form-card">
+                        <div id="split ">
+                          <input type="text" id="textForm" class="textbox" size="50%" height="50"/>
+                          <button id="btn1" v-on:click="LoadingPDF">
+                            Nhap du lieu
+                          </button>
+                        </div>
+            
+                        <div>
+                          <h5>1. Ảnh đại diện</h5>
+                          <div>
+                            <label>Đổi ảnh đại diện (Ảnh PNG trong suốt, size &gt; 250px) </label>
+                            <input type="file" @change="changeLogo" accept="image/*" />
+                            <button v-on:click="showLogo = !showLogo">
+                              Ẩn/Hiện anh dai dien
+                            </button>
+                          </div>
+                        </div>
+            
+                        <div>
+                          <h5>2. Thông tin thẻ (Tên dài quá có thể thu nhỏ chữ)</h5>
+                          <input v-model="name" placeholder="Tên trên thẻ" id="txt-name"/>
+                          <select v-model="font">
+                            <option v-for="fnt in fonts" :value="fnt">Font: {{fnt}}</option>
+                          </select>
+                        </div>
+                
+                        <div>
+                          <h5>3. Ngày tháng năm sinh</h5>
+                          <input v-model="birthday" placeholder="ngày tháng năm sinh" id="txt-birthday" />
+                          <select v-model="font">
+                            <option v-for="fnt in fonts" :value="fnt">Font: {{fnt}}</option>
+                          </select>
+                        </div>
+                
+                        <div>
+                          <h5>4. Ngành</h5>
+                          <input v-model="job" placeholder="Ngành học" id="txt-job" />
+                          <select v-model="font">
+                            <option v-for="fnt in fonts" :value="fnt">Font: {{fnt}}</option>
+                          </select>
+                        </div>
+                
+                        <div>
+                          <h5>5. MSSV</h5>
+                          <div>
+                            <input v-model="MSSV" placeholder="MSSV" id="txt-MSSV" hidden>
+                            <input v-model="url" placeholder="MSSV" id="url"/>
+                          </div>
+                        </div>
+                
+                        <div>
+                          <h5>6. Lớp</h5>
+                          <input v-model="Classroom" placeholder="Lớp" id="txt-Classroom" />
+                          <select v-model="font">
+                            <option v-for="fnt in fonts" :value="fnt">Font: {{fnt}}</option>
+                          </select>
+                        </div>
+                
+                        <div>
+                          <h5>7. Niên khóa</h5>
+                          <input v-model="SchoolYear" placeholder="Niên khóa" id="txt-SchoolYear" />
+                          <select v-model="font">
+                            <option v-for="fnt in fonts" :value="fnt">Font: {{fnt}}</option>
+                          </select>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <footer>
+                <%- include('../partials/footer'); %>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"
+        integrity="sha512-VKjwFVu/mmKGk0Z0BxgDzmn10e590qk3ou/jkmRugAkSTMSIRkd4nEnk+n7r5WBbJquusQEQjBidrBD3IQQISQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.js"
+        integrity="sha512-is1ls2rgwpFZyixqKFEExPHVUUL+pPkBEPw47s/6NDQ4n1m6T/ySeDW3p54jp45z2EJ0RSOgilqee1WhtelXfA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+        integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+      <script src="/script.js" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
 </body>
 </html>
