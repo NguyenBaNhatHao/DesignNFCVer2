@@ -9,9 +9,11 @@ a {
 
 header {
   color: yellow;
-  padding: 200px;
 }
-
+footer{
+  position: absolute;
+  bottom: 0;
+}
 #form-card {
   padding-top: 10px;
 }
