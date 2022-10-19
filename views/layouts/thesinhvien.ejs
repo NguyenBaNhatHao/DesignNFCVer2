@@ -2,10 +2,58 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        1 of 2
+        <img src="/Image/Artboard1.png" alt="hinh" width="850px" height="500px">
       </div>
       <div class="col">
-        2 of 2
+        <div>
+          <h5>1. Ảnh đại diện</h5>
+          <div>
+            <label>Đổi ảnh đại diện (Ảnh PNG trong suốt, size &gt; 250px)</label>
+            <input type="file" @change="changeLogo" accept="image/*" />
+          </div>
+        </div>
+
+        <div>
+          <h5>2. Thông tin thẻ</h5>
+          <div>
+            <input type="text" placeholder="Tên trên thẻ" id="name">
+          </div>
+        </div>
+
+        <div>
+          <h5>3. Ngày tháng năm sinh</h5>
+          <div>
+            <input type="text" placeholder="ngày tháng năm sinh" id="date">
+          </div>
+        </div>
+
+        <div>
+          <h5>4. Ngành</h5>
+          <div>
+            <input type="text" placeholder="Ngành học" id="major">
+          </div>
+        </div>
+
+        <div>
+          <h5>5. MSSV</h5>
+          <div>
+            <input type="text" placeholder="MSSV" id="qrCode">
+          </div>
+        </div>
+
+        <div>
+          <h5>6. Lớp</h5>
+          <div>
+            <input type="text" placeholder="Lớp" id="class">
+          </div>
+        </div>
+
+        <div>
+          <h5>7. Niên khóa</h5>
+          <div>
+            <input type="text" placeholder="Niên khóa" id="school-year">
+          </div>
+        </div>
       </div>
     </div>
 </main>

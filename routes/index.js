@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('layouts/thesinhvien', { title: 'the sinh vien' });
+  res.render('index', { title: 'the sinh vien' });
 });
 
 module.exports = router;
